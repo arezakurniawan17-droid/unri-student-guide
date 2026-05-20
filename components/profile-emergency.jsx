@@ -1,7 +1,7 @@
 const { useState } = React;
 
 // Profile Screen Component
-function ProfileScreen({ t, onBack }) {
+function ProfileScreen({ t, onBack, onLogout }) {
     const [isEditing, setIsEditing] = useState(false);
     
     const studentData = {
@@ -85,6 +85,7 @@ function ProfileScreen({ t, onBack }) {
                         <button
                             key={item.id}
                             style={profileStyles.menuItem}
+                            onClick={item.id === 'logout' ? onLogout : undefined}
                         >
                             <div style={{
                                 ...profileStyles.menuIcon,

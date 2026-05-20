@@ -345,6 +345,12 @@ function App() {
     const handleGetStarted = () => {
         setCurrentScreen('home');
     };
+
+    const handleLogout = () => {
+        localStorage.removeItem('unri_current_screen');
+        localStorage.removeItem('unri_language');
+        setCurrentScreen('onboarding');
+    };
     
     const toggleLanguage = () => {
         setLanguage(language === 'id' ? 'en' : 'id');
@@ -405,9 +411,10 @@ function App() {
                             />
                         )}
                         {currentScreen === 'profile' && (
-                            <ProfileScreen 
+                            <ProfileScreen
                                 t={t}
                                 onBack={() => setCurrentScreen('home')}
+                                onLogout={handleLogout}
                             />
                         )}
                         {currentScreen === 'emergency' && (
