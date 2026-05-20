@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNRI Student Guide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Brand Colors from UNRI Logo */
+            --color-primary: oklch(0.55 0.15 145); /* Rich green */
+            --color-primary-light: oklch(0.65 0.12 145);
+            --color-primary-dark: oklch(0.45 0.17 145);
+            --color-accent: oklch(0.75 0.15 85); /* Yellow-green */
+            --color-accent-light: oklch(0.85 0.12 85);
+            
+            /* Neutrals - subtly warm */
+            --color-bg: oklch(0.99 0.005 100);
+            --color-surface: oklch(1 0 0);
+            --color-surface-secondary: oklch(0.97 0.01 100);
+            --color-border: oklch(0.90 0.01 100);
+            --color-text: oklch(0.25 0.01 100);
+            --color-text-secondary: oklch(0.50 0.01 100);
+            --color-text-tertiary: oklch(0.65 0.01 100);
+            
+            /* Semantic */
+            --color-error: oklch(0.55 0.22 25);
+            --color-warning: oklch(0.65 0.15 75);
+            --color-success: oklch(0.60 0.15 145);
+            --color-info: oklch(0.60 0.15 240);
+            
+            /* Typography */
+            --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+            --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+            
+            /* Spacing */
+            --space-xs: 4px;
+            --space-sm: 8px;
+            --space-md: 16px;
+            --space-lg: 24px;
+            --space-xl: 32px;
+            --space-2xl: 48px;
+            
+            /* Border radius */
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 20px;
+            --radius-full: 9999px;
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.12);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            background: #000;
+            color: var(--color-text);
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: var(--space-lg);
+        }
+        
+        #app-container {
+            width: 100%;
+            max-width: 1200px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app-container"></div>
+    
+    <!-- React & Babel -->
+    <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+    
+    <!-- Components -->
+    <script type="text/babel" src="components/ios-frame.jsx"></script>
+    <script type="text/babel" src="components/tweaks-panel.jsx"></script>
+    <script type="text/babel" src="components/tweaks.jsx"></script>
+    <script type="text/babel" src="components/map-screen.jsx"></script>
+    <script type="text/babel" src="components/directory-screen.jsx"></script>
+    <script type="text/babel" src="components/schedule-screen.jsx"></script>
+    <script type="text/babel" src="components/admin-screen.jsx"></script>
+    <script type="text/babel" src="components/services-screen.jsx"></script>
+    <script type="text/babel" src="components/profile-emergency.jsx"></script>
+    <script type="text/babel" src="components/app.jsx"></script>
+    
+    <!-- Main App -->
+    <script type="text/babel">
+        const { useState } = React;
+        
+        function MainApp() {
+            return (
+                <div>
+                    <IOSDevice width={402} height={874}>
+                        <App />
+                    </IOSDevice>
+                    <AppTweaks />
+                </div>
+            );
+        }
+        
+        ReactDOM.createRoot(document.getElementById('app-container')).render(<MainApp />);
+    </script>
+</body>
+</html>
